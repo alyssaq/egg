@@ -121,10 +121,7 @@ Graph.prototype.drawEquation = function(equation, color, thickness) {
   this.transformContext();
 
   context.beginPath();
-  context.moveTo(this.minX, equation(this.minX));
-
-  var x = this.minX + this.iteration;
-  for(; x <= this.maxX; x += this.iteration) {
+  for(var x = this.minX; x <= this.maxX; x += this.iteration) {
     context.lineTo(x, equation(x));
   }
   context.lineTo(1, 0);
@@ -159,8 +156,8 @@ var eggGraph = new Graph({
   canvasId: 'eggCanvas',
   minX: -1,
   maxX: 1,
-  rangeX: 4,
-  rangeY: 4,
+  rangeX: 3,
+  rangeY: 3,
   unitsPerTick: 1
 });
 
