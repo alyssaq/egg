@@ -14,7 +14,7 @@ Made with all the love and amusement with canvas
 1. npm install
 1. grunt (to create publish-ready `app`)
 1. View `app/index.html` in the browser
-1. git subtree push --prefix app origin gh-pages
+1. Deploy: `$ git subtree push --prefix app origin gh-pages`
 
 ## Reference
 [http://www.mathematische-basteleien.de/eggcurves.htm](http://www.mathematische-basteleien.de/eggcurves.htm)
