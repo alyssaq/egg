@@ -17,15 +17,24 @@ Made with all the love and amusement with canvas
 
 
 ## Deploy `app` to gh-pages
-1. Delete gh-pages branch if it exists
+Delete gh-pages branch if it exists
+```sh
+  $ git branch -d gh-pages
+  $ git push origin :gh-pages
+```
 
-    $ git branch -d gh-pages
-    $ git push origin :gh-pages
+Deploy `app` folder
 
-1. Deploy `app` folder
+```sh
+  $ git subtree push --prefix app origin gh-pages
+```
 
-    $ git subtree push --prefix app origin gh-pages
-
+## Future Features
+Mr. Potato head / paper doll / add facial features to the egg!
+- [Potential eyeball](http://jsbin.com/gatit/5)
+- Need more facial parts...
 ## Reference
 [http://www.mathematische-basteleien.de/eggcurves.htm](http://www.mathematische-basteleien.de/eggcurves.htm)
 
+## License
+[MIT](http://alyssaq.github.io/mit-license/)
