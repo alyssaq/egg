@@ -1,0 +1,53 @@
+html {
+  height:100%;
+  margin:0;
+}
+body {
+  font-family: "Arial Unicode MS", "Lucida Grande", sans-serif;
+  display: flex;
+  min-width: 100%;
+  min-height: 100%;
+  margin: 0 auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  align-content: stretch;
+  text-align: center;
+  background-color: ghostwhite;
+}
+header {
+  display: flex;
+  flex-grow: 0;
+  flex-basis: 50px;
+  min-height: 50px;
+  background-color: plum;
+  align-items: center;
+  justify-content: center;
+}
+.egg {
+  flex-grow: 1;
+  flex-basis: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+  overflow: hidden;
+  min-height: 400px;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+}
+#eggCanvas {
+  padding: 50px;
+  background-color: white;
+  border-radius: 50px;
+  box-shadow: inset 7px -7px 13px -7px rgba(0,0,0,0.7);
+}
+@media only screen and (max-device-width: 480px) {
+  #eggCanvas {
+    box-shadow: none;
+    padding: 0;
+    border-radius: 0;
+  }
+}
