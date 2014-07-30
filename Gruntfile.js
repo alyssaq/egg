@@ -1,33 +1,63 @@
 'use strict';
 
 module.exports = function(grunt) {
-  require('load-grunt-tasks')(grunt);
+  var config = {
+    dev: 'src',
+    prod: 'app'
+  };
 
   grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
+    config: config,
+    clean: ['<%= config.prod %>'],
     autoprefixer: {
       files: {
-        src: 'styles/site.css',
-        dest: 'styles/site.min.css'
+        src: '<%= config.dev %>/styles/site.css',
+        dest: '<%= config.prod %>/site.min.css'
       }
     },
     cssmin: {
       minify: {
-        src: 'styles/site.min.css',
-        dest: 'styles/site.min.css'
+        src: '<%= config.prod %>/site.min.css',
+        dest: '<%= config.prod %>/site.min.css'
       }
     },
     uglify: {
       minify: {
         files: {
-          'scripts/main.min.js': ['scripts/*.js', '!scripts/*.min.js']
+          '<%= config.prod %>/main.min.js': [
+            '<%= config.dev %>/scripts/*.js',
+            '<%= config.dev %>/!scripts/*.min.js']
         }
+      }
+    },
+    processhtml: {
+      prod: {
+        files: {
+          '<%= config.prod %>/index.html': ['<%= config.dev %>/index.html']
+        }
+      }
+    },
+    copy: {
+      ico: {
+        src: '<%= config.dev %>/favicon.ico',
+        dest: '<%= config.prod %>/favicon.ico',
+      },
+      fonts: {
+        expand: true, flatten: true,
+        src: ['<%= config.dev %>/styles/fonts/*'],
+        dest: '<%= config.prod %>/fonts',
+        filter: 'isFile'
       }
     }
   });
 
+  require('load-grunt-tasks')(grunt);
+
   grunt.registerTask('default', [
+    'clean',
     'autoprefixer',
     'cssmin',
-    'uglify']);
+    'uglify',
+    'copy',
+    'processhtml']);
 };
