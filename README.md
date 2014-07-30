@@ -33,6 +33,7 @@ Deploy `app` folder
 Mr. Potato head / paper doll / add facial features to the egg!
 - [Potential eyeball](http://jsbin.com/gatit/5)
 - Need more facial parts...
+
 ## Reference
 [http://www.mathematische-basteleien.de/eggcurves.htm](http://www.mathematische-basteleien.de/eggcurves.htm)
 
