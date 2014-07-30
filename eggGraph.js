@@ -9,7 +9,7 @@ function Graph(config) {
   this.unitsPerTick = config.unitsPerTick;
 
   // constants
-  this.axisColor = '#aaa';
+  this.axisColor = 'lightgray';
   this.font = '8pt Calibri';
   this.tickSize = 20;
 
@@ -130,12 +130,16 @@ Graph.prototype.drawEquation = function(equation, color, thickness) {
   context.lineWidth = thickness;
   context.strokeStyle = color;
   context.stroke();
+  //context.fillStyle = color;
+  //context.fill();
 
   //Add a border around the line
-  context.globalCompositeOperation = 'destination-over'
-  context.strokeStyle = 'black';
-  context.lineWidth = thickness + 2;
-  context.stroke();
+  if (this.drawBorder) {
+    context.globalCompositeOperation = 'destination-over'
+    context.strokeStyle = 'black';
+    context.lineWidth = thickness + 2;
+    context.stroke();
+  }
 };
 
 Graph.prototype.transformContext = function() {
@@ -158,13 +162,19 @@ var eggGraph = new Graph({
   maxX: 1,
   rangeX: 3,
   rangeY: 3,
-  unitsPerTick: 1
+  unitsPerTick: 1,
+  drawBorder: false
 });
+var color = 'plum';
+var thickness = 5;
+var equation = function(x) {
+  return Math.sqrt(1 - x * x)/(1.6 * Math.pow(1.4, x));
+}
 
 eggGraph.drawEquation(function(x) {
-  return (Math.sqrt(1-x*x)/(1.6*Math.pow(1.4, x)));
-}, 'beige', 3);
+  return equation(x);
+}, color, thickness);
 eggGraph.drawEquation(function(x) {
-  return (Math.sqrt(1-x*x)/(1.6*Math.pow(1.4, x)))*-1;
-}, 'beige', 3);
+  return equation(x) * -1;
+}, color, thickness);
 })(document);

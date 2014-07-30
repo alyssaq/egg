@@ -7,29 +7,67 @@
     <meta name="description" content="Eggs">
     <meta name="author"      content="Alyssa Quek">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
     <style type="text/css">
-      html,body {height:100%; margin:0;}
+      html {
+        height:100%;
+        margin:0;
+      }
       body {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -moz-box;
-        display: -ms-flexbox;
+        font-family: "Arial Unicode MS", "Lucida Grande", sans-serif;
         display: flex;
-        -webkit-box-align: center;
-        -webkit-align-items: center;
-        -moz-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        -webkit-box-pack: center;
-        -webkit-justify-content: center;
-        -moz-box-pack: center;
-        -ms-flex-pack: center;
+        min-width: 100%;
+        min-height: 100%;
+        margin: 0 auto;
+        flex-direction: column;
         justify-content: center;
+        align-items: stretch;
+        align-content: stretch;
+        text-align: center;
+        background-color: ghostwhite;
+      }
+      header {
+        display: flex;
+        flex-grow: 0;
+        flex-basis: 50px;
+        min-height: 50px;
+        background-color: plum;
+        align-items: center;
+        justify-content: center;
+      }
+      .egg {
+        flex-grow: 1;
+        flex-basis: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-content: center;
+        align-items: center;
+        overflow: hidden;
+        min-height: 400px;
+        max-width: 500px;
+        width: 100%;
+        margin: 0 auto;
+      }
+      #eggCanvas {
+        padding: 50px;
+        background-color: white;
+        border-radius: 50px;
+        box-shadow: inset 7px -7px 13px -7px rgba(0,0,0,0.7);
       }
     </style>
   </head>
   <body>
-    <canvas id="eggCanvas" width="400" height="400"></canvas>
+    <header>
+      <div>
+        Egg Equation:
+        <b>x<sup>2</sup> + (1.4<sup>x</sup>1.6y)<sup>2</sup> = 1</b>
+      </div>
+    </header>
+    <div class="egg">
+      <canvas id="eggCanvas" width="400" height="400"></canvas>
+    </div>
+    <a href="https://github.com/alyssaq/egg"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
     <script src="eggGraph.js"></script>
   </body>
 </html>
